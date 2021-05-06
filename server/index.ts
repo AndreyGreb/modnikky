@@ -2,10 +2,14 @@ import express from 'express'
 import mongoose from 'mongoose'
 require('dotenv').config()
 
+const router = require('./routes/index')
+
 const PORT = process.env.PORT || 5000
 const URI_DB= 'mongodb+srv://andrey:1q2w3e4r@cluster0.tqus9.mongodb.net/app?retryWrites=true&w=majority'
 
 const app = express()
+
+app.use('/modnikky', router)
 
 async function start() {
   try {
