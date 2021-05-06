@@ -1,13 +1,19 @@
 import express from 'express'
 import mongoose from 'mongoose'
+
 require('dotenv').config()
 
+const cors = require('cors')
 const router = require('./routes/index')
 
+
 const PORT = process.env.PORT || 5000
-const URI_DB= 'mongodb+srv://andrey:1q2w3e4r@cluster0.tqus9.mongodb.net/app?retryWrites=true&w=majority'
+const URI_DB= 'mongodb+srv://andrey:1q2w3e4r@app.5ucmo.mongodb.net/app?retryWrites=true&w=majority'
 
 const app = express()
+
+app.use(cors())
+app.use(express.json())
 
 app.use('/modnikky', router)
 
