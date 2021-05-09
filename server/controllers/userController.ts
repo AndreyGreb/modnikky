@@ -40,7 +40,48 @@ class UserController {
       const token = generateJWT(user.id, user.email)
       return res
         .status(201)
-        .json({message: "Пользователь успешно зарегистрирован!", token: token})
+        .json({
+          message: 'Пользователь успешно зарегистрирован!',
+          token: token,
+        })
+    } catch (error) {
+      res.json(error)
+      console.log(error)
+    }
+  }
+
+  async login(req: any, res: any) {
+    const { email, password } = req.body
+
+    try {
+      const errors = validationResult(req)
+
+      if (!errors.isEmpty()) {
+        return res.status(400).json({
+          errors: errors.array(),
+          message: 'Некорректные данные при  авторизации!',
+        })
+      }
+
+      const { email, password } = req.body
+
+      const user = await User.findOne({ email })
+
+      if (!user) {
+        return res.status(400).json({ message: 'Такого email нет в базе!' })
+      }
+
+      const isMatched = bcrypt.compareSync(password, user.password)
+
+      if (!isMatched) {
+        return res.status(400).json({ message: 'Пароли не совпадают!' })
+      }
+
+      const token = generateJWT(user.id, user.email)
+
+      return res
+        .status(201)
+        .json({ message: 'Пользователь успешно авторизован!', token: token })
     } catch (error) {
       res.json(error)
       console.log(error)

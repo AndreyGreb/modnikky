@@ -15,4 +15,13 @@ router.post(
   UserController.registration
 )
 
+router.post(
+  '/login',
+  [
+    check('email', 'Некорректный email!').isEmail(),
+    check('password', 'Некорректный пароль!').exists(),
+  ],
+  UserController.login
+)
+
 module.exports = router
