@@ -40,7 +40,7 @@ class UserController {
       const token = generateJWT(user.id, user.email)
       return res
         .status(201)
-        .json(token)
+        .json({message: "Пользователь успешно зарегистрирован!", token: token})
     } catch (error) {
       res.json(error)
       console.log(error)
