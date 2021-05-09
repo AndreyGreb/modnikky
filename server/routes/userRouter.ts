@@ -1,5 +1,6 @@
-import { check } from 'express-validator'
 import { Router } from 'express'
+
+const {check} = require('express-validator')
 
 const UserController = require('../controllers/userController')
 
