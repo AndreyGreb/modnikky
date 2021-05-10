@@ -1,0 +1,82 @@
+.white {
+    color: #fff;
+}
+
+.black {
+    color: #000F08;
+}
+
+.header {
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin: 40px auto;
+
+  .navbar {
+    display: flex;
+    width: 100%;
+    font-size: 24px;
+
+    &__left {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      margin: 0 0 0 120px;
+
+      & > a {
+        margin: 0 80px 0 0;
+        white-space: nowrap;
+      }
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      font-family: "Helvetica Neue HV Std";
+      font-size: 70px;
+    }
+
+    &__right {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: flex-end;
+      margin: 0 120px 0 0;
+
+      & > a {
+        margin: 0 0 0 80px;
+        white-space: nowrap;
+      }
+
+      & > div {
+        margin: 0 0 0 80px;
+        white-space: nowrap;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      &-search {
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin: 0 10px 0 0;
+        }
+      }
+
+      &__bag {
+        display: flex;
+        align-items: center;
+
+        span {
+          padding: 0 0 0 10px;
+        }
+      }
+    }
+  }
+}

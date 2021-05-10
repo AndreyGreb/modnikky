@@ -1,0 +1,32 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 2500px;
+    margin: auto 190px 0 190px;
+    padding: 120px 0 0 0;
+  
+    font-family: 'Roboto', sans-serif;
+    &__item-nav-title {
+        font-size: 32px;
+        letter-spacing: 0.04em;
+        color: #000F08;
+    }
+
+    nav>ul {
+        margin: 60px 0 0 0;
+        padding: 0;
+
+        &>li {
+            display: flex;
+            align-items: center;
+            margin: 0 0 40px 0;
+            list-style: none;
+            font-size: 24px;
+
+            &>svg {
+                margin:  0 20px 0 0;
+            }
+        }
+    }
+    
+}

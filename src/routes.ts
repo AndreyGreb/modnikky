@@ -1,5 +1,5 @@
 import Basket from './pages/Basket';
-import MainPage from './pages/MainPage';
+import MainPage from './pages/MainPage/MainPage';
 import NotFound from './pages/NotFound';
 import { MAIN_ROUTE, BASKET_ROUTE, NOT_FOUND_ROUTE } from './utils/consts';
 
