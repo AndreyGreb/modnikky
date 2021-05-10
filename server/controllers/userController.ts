@@ -51,7 +51,6 @@ class UserController {
   }
 
   async login(req: any, res: any) {
-    const { email, password } = req.body
 
     try {
       const errors = validationResult(req)
@@ -82,6 +81,19 @@ class UserController {
       return res
         .status(201)
         .json({ message: 'Пользователь успешно авторизован!', token: token })
+    } catch (error) {
+      res.json(error)
+      console.log(error)
+    }
+  }
+
+  async check(req: any, res: any) {
+
+    try {
+      const token = generateJWT(req.user.id, req.user.email)
+      return res
+        .status(201)
+        .json({token})
     } catch (error) {
       res.json(error)
       console.log(error)
