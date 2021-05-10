@@ -1,14 +1,15 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { authRoutes, publicRoutes } from '../routes';
 import { NOT_FOUND_ROUTE } from '../utils/consts';
 
 const AppRouter = () => {
-  const isAuth = false;
-
+  const uu = useSelector((state) => state);
+  console.log(uu);
   return (
     <Switch>
-      {isAuth &&
+      {uu &&
         authRoutes.map(({ path, Component }) => (
           <Route key={path} path={path} component={Component} exact />
         ))}
