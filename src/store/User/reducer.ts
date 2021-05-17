@@ -1,10 +1,11 @@
-import { IUserState, UserAction, UserActionTypes } from '../types/types';
+import { IUser, IUserState, UserActionTypes } from './types';
 
 const initialState: IUserState = {
   isAuth: false,
+  user: {},
 };
 
-const userReducer = (state = initialState, action: UserAction) => {
+const userReducer = (state = initialState, action: IUser): IUserState => {
   switch (action.type) {
     case UserActionTypes.SET_IS_AUTH:
       return {

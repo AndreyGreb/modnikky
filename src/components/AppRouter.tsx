@@ -5,11 +5,10 @@ import { authRoutes, publicRoutes } from '../routes';
 import { NOT_FOUND_ROUTE } from '../utils/consts';
 
 const AppRouter = () => {
-  const uu = useSelector((state) => state);
-  console.log(uu);
+  const user = useSelector((state) => state);
   return (
     <Switch>
-      {uu &&
+      {user &&
         authRoutes.map(({ path, Component }) => (
           <Route key={path} path={path} component={Component} exact />
         ))}

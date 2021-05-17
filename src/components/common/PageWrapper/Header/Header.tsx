@@ -1,44 +1,42 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import getUserIsAuth from '../../../../store/User/selectors';
+import {
+  BASKET_ROUTE,
+  CATALOG_ROUTE,
+  LOGIN_ROUTE,
+  MAIN_ROUTE,
+} from '../../../../utils/consts';
 import { IHeader } from '../../Interfaces/PageWraper/Interfaces';
 
 import style from './Header.module.scss';
 
 const Header = ({ colorHeader }: IHeader) => {
+  const getUserIsAuthSelector = useSelector(getUserIsAuth);
+
   return (
     <header className={`${style.header} ${style[colorHeader]}`}>
       <nav className={style.navbar}>
         <div className={style.navbar__left}>
           <Link to="/">NEW ARRIVALS</Link>
-          <Link to="/catalog">SHOP</Link>
+          <Link to={CATALOG_ROUTE}>SHOP</Link>
           <Link to="/">COLLECTIONS</Link>
         </div>
-        <Link to="/" className={style.logo}>
+        <Link to={MAIN_ROUTE} className={style.logo}>
           MODNIKKY
         </Link>
         <div className={style.navbar__right}>
-          <div className={style['navbar__right-search']}>
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M23.7061 22.2955L17.9363 16.5257C19.3665 14.782 20.2286 12.5486 20.2286 10.1143C20.2286 4.53061 15.698 0 10.1143 0C4.52571 0 0 4.53061 0 10.1143C0 15.698 4.52571 20.2286 10.1143 20.2286C12.5486 20.2286 14.7771 19.3714 16.5208 17.9412L22.2906 23.7061C22.6824 24.098 23.3143 24.098 23.7061 23.7061C24.098 23.3192 24.098 22.6824 23.7061 22.2955ZM10.1143 18.2155C5.64245 18.2155 2.00816 14.5812 2.00816 10.1143C2.00816 5.64735 5.64245 2.00816 10.1143 2.00816C14.5812 2.00816 18.2204 5.64735 18.2204 10.1143C18.2204 14.5812 14.5812 18.2155 10.1143 18.2155Z"
-                fill={colorHeader === 'white' ? '#fff' : '#000'}
-              />
-            </svg>
-
-            <div>SEARCH</div>
-          </div>
-          <div>PROFILE</div>
-
-          <Link to="/bag" className={style.navbar__right__bag}>
+          {getUserIsAuthSelector ? (
+            <div>SIGN OUT</div>
+          ) : (
+            <Link to={LOGIN_ROUTE}>SIGN IN</Link>
+          )}
+          <Link to={BASKET_ROUTE} className={style.navbar__right__bag}>
             <div>BAG</div>
             <span>(2)</span>
           </Link>
-          <div>
+          {/* <div>
             <svg
               width="28"
               height="24"
@@ -50,7 +48,7 @@ const Header = ({ colorHeader }: IHeader) => {
                 fill={colorHeader === 'white' ? '#fff' : '#000'}
               />
             </svg>
-          </div>
+          </div> */}
         </div>
       </nav>
     </header>

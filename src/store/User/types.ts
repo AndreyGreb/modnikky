@@ -4,10 +4,10 @@ export enum UserActionTypes {
 
 export interface IUserState {
   isAuth: boolean;
+  user: { token?: string };
 }
 
-interface IUserAction {
+export interface IUser {
+  isAuth: boolean;
   type: UserActionTypes.SET_IS_AUTH;
 }
-
-export type UserAction = IUserAction;
