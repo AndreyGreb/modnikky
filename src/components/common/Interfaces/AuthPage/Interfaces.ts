@@ -3,6 +3,11 @@ export interface IInputSignIn {
   setInputState: (value: any) => any;
 }
 
+export interface IInputCreateAccount {
+  inputState: any;
+  setInputState: (value: any) => any;
+}
+
 export interface IInput {
   placeholder: string;
   type: string;

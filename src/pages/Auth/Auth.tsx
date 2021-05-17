@@ -3,6 +3,7 @@ import { useLocation } from 'react-router';
 import PageWrapper from '../../components/common/PageWrapper/PageWrapper';
 import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../../utils/consts';
 import style from './Auth.module.scss';
+import FormCreateAccount from './FormCreateAccount/FormCreateAccount';
 import FormSignIn from './FormSignIn/FormSignIn';
 
 const Auth = () => {
@@ -22,11 +23,9 @@ const Auth = () => {
             </span>
           </div>
 
-          {
-            isLogin && <FormSignIn />
+          {isLogin && <FormSignIn />}
 
-            // <FormCreateAccount toggleForm={toggleForm} />
-          }
+          {isRegistration && <FormCreateAccount />}
         </div>
       </div>
     </PageWrapper>
