@@ -1,5 +1,5 @@
 import Tstate from '../rootType';
 
-const getUserIsAuth = (state: Tstate) => state.user.isAuth;
+const getUser = (state: Tstate) => state.user;
 
-export default getUserIsAuth;
+export default getUser;

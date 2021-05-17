@@ -6,8 +6,3 @@ export interface IUserState {
   isAuth: boolean;
   user: { token?: string };
 }
-
-export interface IUser {
-  isAuth: boolean;
-  type: UserActionTypes.SET_IS_AUTH;
-}

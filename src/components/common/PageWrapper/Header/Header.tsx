@@ -1,7 +1,8 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import getUserIsAuth from '../../../../store/User/selectors';
+import toggleUserIsAuthAction from '../../../../store/User/actions';
+import getUser from '../../../../store/User/selectors';
 import {
   BASKET_ROUTE,
   CATALOG_ROUTE,
@@ -13,7 +14,12 @@ import { IHeader } from '../../Interfaces/PageWraper/Interfaces';
 import style from './Header.module.scss';
 
 const Header = ({ colorHeader }: IHeader) => {
-  const getUserIsAuthSelector = useSelector(getUserIsAuth);
+  const userSelector = useSelector(getUser);
+  const dispatch = useDispatch();
+
+  const toggleUserIsAuth = () => {
+    dispatch(toggleUserIsAuthAction(false));
+  };
 
   return (
     <header className={`${style.header} ${style[colorHeader]}`}>
@@ -27,8 +33,13 @@ const Header = ({ colorHeader }: IHeader) => {
           MODNIKKY
         </Link>
         <div className={style.navbar__right}>
-          {getUserIsAuthSelector ? (
-            <div>SIGN OUT</div>
+          {userSelector.isAuth ? (
+            <div
+              onClick={toggleUserIsAuth}
+              onKeyDown={toggleUserIsAuth}
+              role="presentation">
+              SIGN OUT
+            </div>
           ) : (
             <Link to={LOGIN_ROUTE}>SIGN IN</Link>
           )}

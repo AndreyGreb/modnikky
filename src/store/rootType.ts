@@ -1,7 +1,7 @@
-import { IUser } from './User/types';
+import { IUserState } from './User/types';
 
 type Tstate = {
-  user: IUser;
+  user: IUserState;
 };
 
 export default Tstate;
