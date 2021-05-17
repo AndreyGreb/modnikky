@@ -1,0 +1,61 @@
+.catalog {
+    display: flex;
+    color: #000f08;
+    font-size: 24px;
+  
+    &__navbar {
+      margin: 190px 0 0 190px;
+  
+      &-categories {
+        margin: 0 0 60px 0;
+  
+        & > ul {
+          margin: 60px 0 0 0;
+          padding: 0;
+        }
+        & > ul > li {
+          margin: 0 0 40px 0;
+          list-style: none;
+          white-space: nowrap;
+        }
+      }
+    }
+  
+    &__product {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 420px 375px 0 140px;
+  
+      &-item {
+        display: flex;
+        flex-direction: column;
+        width: 900px;
+        height: 1350px;
+        margin: 0 0 160px 0;
+  
+        &-price {
+          margin: 10px 0 0 0;
+          font-size: 60px;
+          font-weight: 700;
+        }
+  
+        &-description {
+          font-size: 50px;
+          margin: 10px 0 0 0;
+          color: rgb(98, 98, 98);
+        }
+  
+        &-name {
+        
+          margin: 0 0 0 10px;
+        }
+  
+        &-brand {
+          color: #000;
+          margin:  0 10px 0 0;
+        }
+      }
+    }
+  }

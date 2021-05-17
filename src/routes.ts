@@ -7,8 +7,10 @@ import {
   NOT_FOUND_ROUTE,
   LOGIN_ROUTE,
   REGISTRATION_ROUTE,
+  CATALOG_ROUTE,
 } from './utils/consts';
 import Auth from './pages/Auth/Auth';
+import Catalog from './pages/Catalog/Catalog';
 
 export const authRoutes = [
   {
@@ -29,6 +31,10 @@ export const publicRoutes = [
   {
     path: REGISTRATION_ROUTE,
     Component: Auth,
+  },
+  {
+    path: CATALOG_ROUTE,
+    Component: Catalog,
   },
   {
     path: NOT_FOUND_ROUTE,
