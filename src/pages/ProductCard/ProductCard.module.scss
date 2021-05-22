@@ -1,0 +1,54 @@
+.productCard {
+    display: flex;
+    margin-top: 164px;
+  
+    &__images {
+      display: flex;
+  
+      img {
+        width: 1080px;
+        height: 1625px;
+      }
+    }
+  
+    &__description {
+      display: flex;
+      flex-direction: column;
+      margin: 80px 0 0 120px;
+  
+      &-brand {
+        font-size: 36px;
+        letter-spacing: 0.04em;
+      }
+  
+      &-name {
+        margin: 20px 0 0 0;
+        font-size: 24px;
+      }
+  
+      &-price {
+        margin: 40px 0 0 0;
+        font-size: 30px;
+      }
+  
+      &-size {
+        display: flex;
+        flex-direction: column;
+        margin: 275px 0 0 0;
+  
+        .size-title {
+          font-size: 24px;
+          color: #8c8c8c;
+        }
+  
+        .wrapper {
+          display: flex;
+          margin: 40px 0 0 0;
+        }
+      }
+    }
+  
+    &__questions {
+      margin-top: 80px;
+    }
+  }

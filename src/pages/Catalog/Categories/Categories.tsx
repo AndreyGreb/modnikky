@@ -1,29 +1,21 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import getCategories from '../../../store/Categories/selectors';
 
 import style from '../Catalog.module.scss';
 
 const Categories = () => {
+
+  const categories = useSelector(getCategories)
+
   return (
     <nav className={style.catalog__navbar}>
       <div className={style['catalog__navbar-categories']}>
         <span>CATEGORIES</span>
         <ul>
-          <li>TOPS</li>
-          <li>NEW ARRIVALS</li>
-          <li>COLLECTIONS</li>
-          <li>TEES AND TANKS</li>
-          <li>SHIRTS</li>
-          <li>DRESSES</li>
-          <li>JACKETS</li>
-          <li>KNITWEAR</li>
-          <li>JUMPSUITS</li>
-          <li>BOTTOMS</li>
-          <li>INTIMATES</li>
-          <li>SHORTS</li>
-          <li>JEANS</li>
-          <li>SKIRTS</li>
-          <li>SALE</li>
-          <li>SHOP ALL</li>
+          {categories.map(item => {
+            return <li key={item.id}>{item.name}</li>
+          })}
         </ul>
       </div>
     </nav>
