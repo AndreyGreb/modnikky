@@ -16,6 +16,6 @@ module.exports = function (req: any, res: any, next: any) {
     req.user = decoded
     next()
   } catch (error) {
-    res.json(error)
+    res.json({message: 'ERROR'})
   }
 }

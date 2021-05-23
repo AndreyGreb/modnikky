@@ -1,7 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {toggleUserIsAuthAction} from '../../../../store/User/actions';
+import {
+  logoutUserAction,
+  setUserAction,
+  toggleUserIsAuthAction,
+} from '../../../../store/User/actions';
 import getUser from '../../../../store/User/selectors';
 import {
   BASKET_ROUTE,
@@ -15,10 +19,11 @@ import style from './Header.module.scss';
 
 const Header = ({ colorHeader }: IHeader) => {
   const userSelector = useSelector(getUser);
-  const dispatch = useDispatch();
+  const dispatchUser = useDispatch();
 
-  const toggleUserIsAuth = () => {
-    dispatch(toggleUserIsAuthAction(false));
+  const logOut = () => {
+    dispatchUser(toggleUserIsAuthAction(false));
+    dispatchUser(logoutUserAction());
   };
 
   return (
@@ -34,11 +39,8 @@ const Header = ({ colorHeader }: IHeader) => {
         </Link>
         <div className={style.navbar__right}>
           {userSelector.isAuth ? (
-            <div
-              onClick={toggleUserIsAuth}
-              onKeyDown={toggleUserIsAuth}
-              role="presentation">
-              SIGN OUT
+            <div onClick={logOut} onKeyDown={logOut} role="presentation">
+              LOG OUT
             </div>
           ) : (
             <Link to={LOGIN_ROUTE}>SIGN IN</Link>

@@ -6,15 +6,18 @@ export const registration = async (email: string, password: string) => {
     email,
     password,
   });
+  localStorage.setItem('token', data.token);
   return jwt_decode(data.token);
 };
 
 export const login = async (email: string, password: string) => {
   const { data } = await $host.post('modnikky/user/login', { email, password });
+  localStorage.setItem('token', data.token);
   return jwt_decode(data.token);
 };
 
 export const check = async () => {
-  const { data } = await $host.post('modnikky/user/check');
+  const { data } = await $authHost.get('modnikky/user/auth');
+   localStorage.setItem('token', data.token);
   return jwt_decode(data.token);
 };
