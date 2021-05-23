@@ -4,8 +4,8 @@ import { IUserState } from './User/types';
 
 type Tstate = {
   user: IUserState;
-  product: IProductState
-  categories: ICategoriesState
+  product: IProductState;
+  categories: ICategoriesState;
 };
 
 export default Tstate;

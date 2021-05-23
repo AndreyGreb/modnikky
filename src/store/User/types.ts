@@ -1,8 +1,9 @@
 export enum UserActionTypes {
   SET_IS_AUTH = 'SET_IS_AUTH',
+  SET_USER = 'SET_USER',
 }
 
 export interface IUserState {
   isAuth: boolean;
-  user: { token?: string };
+  user: { email: string };
 }

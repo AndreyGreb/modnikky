@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { IFormCreateAccount } from '../../../components/common/Interfaces/AuthPage/Interfaces';
 import ButtonAuth from '../../../components/common/UI/Buttons/ButtonAuth/ButtonAuth';
 import { LOGIN_ROUTE } from '../../../utils/consts';
 
 import style from '../Auth.module.scss';
 import InputCreateAccount from './InputCreateAccount/InputCreateAccount';
 
-const FormCreateAccount = () => {
-  const [inputState, setInputState] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  });
-
+const FormCreateAccount: FC<IFormCreateAccount> = ({
+  inputRegistrState,
+  setInputRegistrState,
+  submitData,
+}: IFormCreateAccount) => {
   return (
     <>
       {/* block input */}
       <div className={style['form__content-input']}>
         <InputCreateAccount
-          inputState={inputState}
-          setInputState={setInputState}
+          inputRegistrState={inputRegistrState}
+          setInputRegistrState={setInputRegistrState}
         />
       </div>
 
@@ -51,7 +50,7 @@ const FormCreateAccount = () => {
       </div>
 
       {/* block button */}
-      <ButtonAuth text="SIGN UP" />
+      <ButtonAuth text="SIGN UP" submitData={submitData} />
 
       {/* block footer */}
       <div className={style['form__content-footer']}>

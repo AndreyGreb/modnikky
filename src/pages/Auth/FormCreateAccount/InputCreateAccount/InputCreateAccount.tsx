@@ -3,36 +3,36 @@ import { IInputCreateAccount } from '../../../../components/common/Interfaces/Au
 import Input from '../../../../components/common/UI/Inputs/Input';
 
 const InputCreateAccount: FC<IInputCreateAccount> = ({
-  inputState,
-  setInputState,
+  inputRegistrState,
+  setInputRegistrState,
 }: IInputCreateAccount) => {
   return (
     <>
       <Input
-        inputState={inputState}
+        inputState={inputRegistrState}
         formKey="firstName"
-        setInputState={setInputState}
+        setInputState={setInputRegistrState}
         placeholder="First Name"
         type="text"
       />
       <Input
-        inputState={inputState}
+        inputState={inputRegistrState}
         formKey="lastName"
-        setInputState={setInputState}
+        setInputState={setInputRegistrState}
         placeholder="Last Name"
         type="text"
       />
       <Input
-        inputState={inputState}
+        inputState={inputRegistrState}
         formKey="email"
-        setInputState={setInputState}
+        setInputState={setInputRegistrState}
         placeholder="Email"
         type="text"
       />
       <Input
-        inputState={inputState}
+        inputState={inputRegistrState}
         formKey="password"
-        setInputState={setInputState}
+        setInputState={setInputRegistrState}
         placeholder="Password"
         type="password"
       />

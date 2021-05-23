@@ -3,22 +3,24 @@ import { IInputSignIn } from '../../../../components/common/Interfaces/AuthPage/
 import Input from '../../../../components/common/UI/Inputs/Input';
 
 const InputSignIn: FC<IInputSignIn> = ({
-  inputState,
-  setInputState,
+  inputAuthState,
+  setInputAuthState,
 }: IInputSignIn) => {
+
+
   return (
     <>
       <Input
-        inputState={inputState}
+        inputState={inputAuthState}
         formKey="email"
-        setInputState={setInputState}
+        setInputState={setInputAuthState}
         placeholder="Email"
         type="text"
       />
       <Input
-        inputState={inputState}
+        inputState={inputAuthState}
         formKey="password"
-        setInputState={setInputState}
+        setInputState={setInputAuthState}
         placeholder="Password"
         type="password"
       />

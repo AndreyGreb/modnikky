@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import toggleUserIsAuthAction from '../../../../store/User/actions';
+import {toggleUserIsAuthAction} from '../../../../store/User/actions';
 import getUser from '../../../../store/User/selectors';
 import {
   BASKET_ROUTE,
