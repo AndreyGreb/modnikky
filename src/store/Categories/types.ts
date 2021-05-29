@@ -1,12 +1,10 @@
-export enum ProductActionTypes {
-    SET_IS_AUTH = 'SET_IS_AUTH',
+export enum CategoryActionTypes {
+  GET_CATEGORY = 'GET_CATEGORY',
 }
 
-interface IObject {
-    id: number,
-    name: string
+export interface IObject {
+  _id: string;
+  category: string;
 }
 
-export type ICategoriesState = IObject[]
-
-
+export type ICategoriesState = { category: IObject[] | [] };

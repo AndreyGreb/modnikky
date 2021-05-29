@@ -9,8 +9,11 @@ const $authHost = axios.create({
 });
 
 const authInterceptor = (config: any) => {
+  // console.log(localStorage.getItem('token'));
+
   // eslint-disable-next-line no-param-reassign
   config.headers.authorization = `Bearer ${localStorage.getItem('token')}`;
+
   return config;
 };
 

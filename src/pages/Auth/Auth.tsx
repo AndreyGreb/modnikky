@@ -36,31 +36,27 @@ const Auth = () => {
   const history = useHistory();
 
   const submitData = async () => {
-    try {
-      let data: { email?: string } | any;
-      if (isLogin) {
-        data = await login(inputAuthState.email, inputAuthState.password);
-        setInputAuthState({ email: '', password: '' });
-        userDispatch(toggleUserIsAuthAction(true));
-      } else if (isRegistration) {
-        data = await registration(
-          inputRegistrState.email,
-          inputRegistrState.password
-        );
-
-        setInputRegistrState({
-          firstName: '',
-          lastName: '',
-          email: '',
-          password: '',
-        });
-      }
-      userDispatch(setUserAction({ email: data.email }));
+    let data: { email?: string } | any;
+    if (isLogin) {
+      data = await login(inputAuthState.email, inputAuthState.password);
+      setInputAuthState({ email: '', password: '' });
       userDispatch(toggleUserIsAuthAction(true));
-      history.push(MAIN_ROUTE);
-    } catch (error) {
-      alert(error.response.data.message);
+    } else if (isRegistration) {
+      data = await registration(
+        inputRegistrState.email,
+        inputRegistrState.password
+      );
+
+      setInputRegistrState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+      });
     }
+    userDispatch(setUserAction({ email: data.email }));
+    userDispatch(toggleUserIsAuthAction(true));
+    history.push(MAIN_ROUTE);
   };
 
   return (

@@ -6,7 +6,7 @@ const User = require('../models/User')
 const Basket = require('../models/Basket')
 
 const generateJWT = (id: string, email: string) => {
-  return jwt.sign({ id, email }, process.env.SECRET_KEY, { expiresIn: '24h' })
+  return jwt.sign({ id, email }, process.env.SECRET_KEY, { expiresIn: '60s' })
 }
 
 class UserController {
@@ -90,7 +90,9 @@ class UserController {
   async check(req: any, res: any) {
 
     try {
+    
       const token = generateJWT(req.user.id, req.user.email)
+      console.log(('here'));
       return res
         .status(201)
         .json({token})

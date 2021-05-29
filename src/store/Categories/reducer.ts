@@ -1,26 +1,21 @@
-import { ICategoriesState, ProductActionTypes } from './types';
+import { CategoryActionTypes, ICategoriesState, IObject } from './types';
 
-const initialState: ICategoriesState = [
-    { id: 1, name: "HOODIE" },
-    { id: 2, name: "SWEATSHIRT" },
-    { id: 3, name: "T-SHIRT" },
-]
-
+const initialState: ICategoriesState = { category: [] };
 
 const categoriesReducer = (
-    state = initialState,
-    action: { type: ProductActionTypes.SET_IS_AUTH; payload: boolean }
+  state = initialState,
+  action: { type: CategoryActionTypes.GET_CATEGORY; payload: [IObject] }
 ): ICategoriesState => {
-    switch (action.type) {
-        // case UserActionTypes.SET_IS_AUTH:
-        //   return {
-        //     ...state,
-        //     isAuth: action.payload,
-        //   };
+  switch (action.type) {
+    case CategoryActionTypes.GET_CATEGORY:
+      return {
+        ...state,
+        category: action.payload,
+      };
 
-        default:
-            return state;
-    }
+    default:
+      return state;
+  }
 };
 
 export default categoriesReducer;
